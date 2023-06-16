@@ -1,0 +1,10 @@
+# JetBrains Files
+.idea
+
+# OS Files
+.DS_Store
+exec
+exec.txt
+
+# Python Files
+venv

@@ -9,7 +9,7 @@ class Interface:
         self.maxIndex = 20
         self.make()
 
-        self.mainFrame.pack(padx=10, pady=10, expand=True, fill='both')#grid(column=0, row=0)
+        self.mainFrame.pack(padx=10, pady=10, expand=True, fill='both')  # grid(column=0, row=0)
         self.root.mainloop()
 
     def make(self):
@@ -17,7 +17,7 @@ class Interface:
         self.gridFrame.grid(column=0, row=0, columnspan=3, padx=5, pady=5)
 
         for i in range(26):
-            ctk.CTkLabel(self.gridFrame, text=str(i)).grid(row=5, column=i+1, padx=5)
+            ctk.CTkLabel(self.gridFrame, text=str(i)).grid(row=5, column=i + 1, padx=5)
 
         ctk.CTkLabel(self.gridFrame, text='P1').grid(row=1, column=0)
         ctk.CTkLabel(self.gridFrame, text='P2').grid(row=2, column=0)
@@ -50,11 +50,11 @@ class Interface:
         duration = int(self.duration.get())
 
         newBlock = ctk.CTkButton(self.gridFrame, text=self.labelText.get(), command=lambda : [newBlock.destroy()], width=25*duration)
-        newBlock.grid(row=row, column=index+1, columnspan=duration, padx=5, pady=5)
+        newBlock.grid(row=row, column=index + 1, columnspan=duration, padx=5, pady=5)
 
         if index + duration > self.maxIndex:
             for i in range(self.maxIndex, index + duration + 1):
-                ctk.CTkLabel(self.gridFrame, text=str(i)).grid(row=5, column=i+1, padx=5)
+                ctk.CTkLabel(self.gridFrame, text=str(i)).grid(row=5, column=i + 1, padx=5)
             self.maxIndex = index + duration
 
 Interface()

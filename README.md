@@ -1,14 +1,16 @@
 # Scheduler Simulator
 Template per gli esercizi sullo scheduling
 
-### Intallazione
+### Installazione
 Basta eseguire lo script "setup.sh"
-```commandline
+
+```bash
 ./setup.sh
 ```
 
 ### Utilizzo
 Eseguire "run.sh"
-```commandline
+
+```bash
 ./run.sh
 ```
