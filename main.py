@@ -9,7 +9,7 @@ class Interface:
         self.maxIndex = 20
         self.make()
 
-        self.mainFrame.pack(padx=10, pady=10, expand=True, fill='both')  # grid(column=0, row=0)
+        self.mainFrame.pack(padx=10, pady=10, expand=True, fill='both')
         self.root.mainloop()
 
     def make(self):
@@ -42,14 +42,18 @@ class Interface:
 
     def add(self):
         row = self.processSelect.get().replace('P', '')
+        
         if row == 'Gantt':
             row = 6
+        
         else:
             row = int(row)
+        
         index = int(self.startIndex.get())
         duration = int(self.duration.get())
 
-        newBlock = ctk.CTkButton(self.gridFrame, text=self.labelText.get(), command=lambda : [newBlock.destroy()], width=25*duration)
+
+        newBlock = ctk.CTkButton(self.gridFrame, text=self.labelText.get(), command=lambda : [newBlock.destroy()], width=25 * duration)
         newBlock.grid(row=row, column=index + 1, columnspan=duration, padx=5, pady=5)
 
         if index + duration > self.maxIndex:
