@@ -23,8 +23,9 @@ class Interface:
         ctk.CTkLabel(self.gridFrame, text='P2').grid(row=2, column=0)
         ctk.CTkLabel(self.gridFrame, text='P3').grid(row=3, column=0)
         ctk.CTkLabel(self.gridFrame, text='P4').grid(row=4, column=0)
+        ctk.CTkLabel(self.gridFrame, text='Gantt').grid(row=6, column=0)
 
-        self.processSelect = ctk.CTkOptionMenu(self.mainFrame, values=['P1', 'P2', 'P3', 'P4'])
+        self.processSelect = ctk.CTkOptionMenu(self.mainFrame, values=['P1', 'P2', 'P3', 'P4', 'Gantt'])
         self.processSelect.grid(column=0, row=2, padx=5, pady=5, columnspan=2)
 
         self.labelText = ctk.CTkEntry(self.mainFrame, placeholder_text='Label')
@@ -40,11 +41,16 @@ class Interface:
         self.addButton.grid(row=3, column=2, padx=5, pady=5)
 
     def add(self):
+        row = self.processSelect.get().replace('P', '')
+        if row == 'Gantt':
+            row = 6
+        else:
+            row = int(row)
         index = int(self.startIndex.get())
         duration = int(self.duration.get())
 
-        newBlock = ctk.CTkButton(self.gridFrame, text=self.labelText.get(), command=lambda : [newBlock.destroy()], width=15*duration)
-        newBlock.grid(row=int(self.processSelect.get().replace('P', '')), column=index+1, columnspan=duration, padx=5, pady=5)
+        newBlock = ctk.CTkButton(self.gridFrame, text=self.labelText.get(), command=lambda : [newBlock.destroy()], width=25*duration)
+        newBlock.grid(row=row, column=index+1, columnspan=duration, padx=5, pady=5)
 
         if index + duration > self.maxIndex:
             for i in range(self.maxIndex, index + duration + 1):
