@@ -48,7 +48,7 @@ class Interface:
 
         else:
             row = int(row)
-
+        
         index = int(self.startIndex.get())
         duration = int(self.duration.get())
 
