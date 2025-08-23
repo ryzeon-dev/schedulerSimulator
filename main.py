@@ -6,7 +6,7 @@ class Interface:
         self.root.title('Scheduler Simulator')
         self.mainFrame = ctk.CTkFrame(self.root)
 
-        self.maxIndex = 25
+        self.maxIndex = 30
         self.make()
 
         self.mainFrame.pack(padx=10, pady=10, expand=True, fill='both')
@@ -53,7 +53,7 @@ class Interface:
         duration = int(self.duration.get())
 
         newBlock = ctk.CTkButton(self.gridFrame, text=self.labelText.get(), command=lambda : [newBlock.destroy()], width=25 * duration)
-        newBlock.grid(row=row, column=index + 1, columnspan=duration, padx=5, pady=5)
+        newBlock.grid(row=row, column=index + 1, columnspan=duration, padx=1, pady=1)
 
         if index + duration > self.maxIndex:
             for i in range(self.maxIndex, index + duration + 1):
